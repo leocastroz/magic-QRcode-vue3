@@ -6,19 +6,30 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld />
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about" class="use">Usar</RouterLink>
+        <RouterLink to="/">👋 Home</RouterLink>
+        <div class="pulse">
+          <RouterLink class="pulse-button" to="/about">⭐ começar agora</RouterLink>
+        </div>
       </nav>
     </div>
+    <RouterView />
   </header>
-  <RouterView />
+ 
 </template>
 
 <style scoped>
+
 header{
+  background-image: url('https://www.rocketseat.com.br/discover/devlinks/bg-desktop.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
   text-align: center;
+  color: #ffffff86;
 }
 
 .wrapper{
@@ -26,20 +37,42 @@ header{
   max-width: 1200px;
 }
 
-nav{
-  padding: 20px;
+nav {
+  margin-top: 50px;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
 }
 
-nav a{
-  padding: 10px;
+nav a {
+  color: #ffffff;
+  padding: 12px 20px;
   text-decoration: none;
-  color: #000000;
   font-size: 20px;
 }
 
-nav .use{
-  padding: 5px 20px;
-  background-color: #b668ff;
+nav .pulse-button {
+  background: #00000073;
   border-radius: 3px;
+  font-size: 14px;
+  border: 1px solid #ffffff;
 }
+
+.pulse {
+  width: 180px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 </style>

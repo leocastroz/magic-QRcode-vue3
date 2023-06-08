@@ -1,10 +1,13 @@
 <template>
   <div class="group">
-    <p>{{error}}</p>
-    <p>{{decodedString}}</p>
-    <button @click="torch=!torch">ATIVAR FLASH</button>
-    <div class="webcam">
-      <qrcode-stream :torch="torch" @init="onInit" @decode="onDecode"></qrcode-stream>
+    <div class="container-cam">
+      <a href="/">Página Inicial</a>
+      <div class="webcam">
+        <qrcode-stream :torch="torch" @init="onInit" @decode="onDecode"></qrcode-stream>
+      </div>
+      <button @click="torch=!torch">ATIVAR FLASH</button>
+      <p>{{error}}</p>
+      <p>{{decodedString}}</p>
     </div>
   </div>
 </template>
@@ -42,26 +45,65 @@ export default {
           this.error = "navegador parece estar faltando recursos"
         }
         } finally {
-          // hide loading indicator
         }
       },
       onDecode(decodedString){
         this.decodedString = decodedString;
+        const pattern = /;P:(.+?);/; // Expressão regular para encontrar a senha entre ";P:" e ";"
+        const match = decodedString.match(pattern);
+        if (match) {
+          this.decodedString = match[1]; // A senha é capturada no primeiro grupo de captura (índice 1)
+        }
       }
   }
 };
 </script>
 
 <style scoped>
-.group{
-  margin: 0 auto;
-  max-width: 1200px;
-  background-color: red;
+button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: bold;
 }
-.webcam{
-  margin: 0 auto;
-  width: 270px;
-  height: 270px;
-  border-radius: 50px;
+.group{
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.391);
+}
+
+.container-cam {
+  margin: 200px auto;
+  width: 350px;
+  height: 500px;
+  border-radius: 10px;
+  padding: 70px;
+  background-image: url('https://www.rocketseat.com.br/discover/devlinks/bg-desktop.jpg');
+  background-position: center center;
+  background-size: cover;
+  box-shadow: 0 0 300px 10px #5d2d80;
+}
+.webcam {
+  margin: 10px auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background: linear-gradient(white, white) padding-box, linear-gradient(to right, #695076, #5d2d80) border-box;
+  border: 8px solid transparent;
+}
+
+p {
+  margin: 30px 0;
+  width: 200px;
+  font-size: 13px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
 }
 </style>
