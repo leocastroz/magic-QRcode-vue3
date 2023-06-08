@@ -86,13 +86,14 @@ button {
   background-position: center center;
   background-size: cover;
   box-shadow: 0 0 300px 10px #5d2d80;
+  border: 2px solid #be64ff;
 }
 .webcam {
   margin: 10px auto;
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   border-radius: 10px;
-  background: linear-gradient(white, white) padding-box, linear-gradient(to right, #695076, #5d2d80) border-box;
+  background: linear-gradient(white, white) padding-box, linear-gradient(to right, #bc5fff, #fbf7ff) border-box;
   border: 8px solid transparent;
 }
 
