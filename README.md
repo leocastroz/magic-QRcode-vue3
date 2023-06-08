@@ -1,5 +1,7 @@
 ![](./public/github_img.png)
 
+![](./public/capt-qrcode.png)
+
 # Qrcode-project
 
 QRcode reading project aimed at unlocking passwords and messages contained in the qrcode.
