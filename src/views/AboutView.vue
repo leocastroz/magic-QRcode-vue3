@@ -107,4 +107,25 @@ a {
   color: #fff;
   text-decoration: none;
 }
+
+
+@media (max-width: 800px) {
+  .container-cam {
+    display: grid;
+    justify-content: center;
+    max-width: 300px;
+    margin-top: 100px;
+  }
+  .webcam {
+    width: 170px;
+    height: 170px;
+  }
+
+  button {
+    margin: 0 auto;
+    width: 120px;
+    font-size: 10px;
+  }
+}
+
 </style>

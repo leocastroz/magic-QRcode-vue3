@@ -75,4 +75,13 @@ nav .pulse-button {
   }
 }
 
+@media (max-width: 800px) {
+  nav a {
+    font-size: 13px;
+  }
+  nav .pulse-button {
+    font-size: 11px;
+  }
+}
+
 </style>

@@ -23,4 +23,15 @@ h1 {
 div {
   padding-top: 100px;
 }
+
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 25px;
+  }
+  p {
+    font-size: 13px;
+  }
+}
+
 </style>
